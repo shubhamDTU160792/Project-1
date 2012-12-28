@@ -1,0 +1,33 @@
+<%= form_for(@interviewer) do |f| %>
+  <% if @interviewer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interviewer.errors.count, "error") %> prohibited this interviewer from being saved:</h2>
+
+      <ul>
+      <% @interviewer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.radio_button :role, 'Product Owner'%>Product Owner
+    <%= f.radio_button :role, 'Project Manager'%>Project Manager
+    <%= f.radio_button :role, 'Developer'%>Developer
+    <%= f.radio_button :role, 'Designer'%>Designer
+    <%= f.radio_button :role, 'Consultants'%>Consultants
+    <%= f.radio_button :role, 'Architect' %>Architect
+    <%= f.radio_button :role, 'Tester'%>Tester
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

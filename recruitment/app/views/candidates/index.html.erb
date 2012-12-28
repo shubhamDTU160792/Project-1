@@ -1,0 +1,45 @@
+<h1>Listing candidates</h1>
+
+
+
+<table>
+
+  <%= form_tag candidates_path, :method => 'get' do %>  
+  <p align="right">  
+    <%= text_field_tag :search, params[:search] %>  
+    <%= submit_tag "Search By Name", :name => nil %>  
+  </p>  
+<% end %> 
+  <tr>
+    <th>Name</th>
+    <th>Platform</th>
+    <th>Vendor</th>
+    <th>Round</th>
+    <th>Date of Interview</th>
+    <th>Interviewers</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+
+  </tr>
+
+<% @candidates.each do |candidate| %>
+  <tr>
+    <td><%= candidate.name %></td>
+    <td><%= candidate.platform %></td>
+    <td><%= candidate.vendor %></td>
+    <td><%= candidate.round %></td>
+    <td><%= candidate.date_of_interview %></td>
+    <td><%= candidate.interviewers %></td>
+    <td><%= candidate.status %></td>
+    <td><%= link_to 'Show', candidate %></td>
+    <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
+    <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Candidate', new_candidate_path %>

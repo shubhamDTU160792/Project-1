@@ -1,0 +1,87 @@
+<%= form_for(@candidate) do |f| %>
+  <% if @candidate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+
+      <ul>
+      <% @candidate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br />
+   <%= f.radio_button :sex, 'Male'%>Male
+    <%= f.radio_button :sex, 'Female'%>Female
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :experience %><br />
+    <%= f.select :experience, ['0-1 Years','1-2 Years','2-3 Years','3-4 Years','5+ Years'] %>
+  </div>
+  <div class="field">
+    <%= f.label :college %><br />
+    <%= f.text_field :college %>
+  </div>
+  <div class="field">
+    <%= f.label :year_of_passing %><br />
+    <%= f.text_field :year_of_passing %>
+  </div>
+  <div class="field">
+    <%= f.label :platform %><br />
+    <%= f.text_area :platform %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor %><br />
+    <%= f.radio_button :vendor, 'TCS'%>TCS
+    <%= f.radio_button :vendor, 'ThoughtWorks'%>ToughtWorks
+    <%= f.radio_button :vendor, 'Sapient'%>Sapient
+    <%= f.radio_button :vendor, 'Infosys'%>Infosys
+    <%= f.radio_button :vendor, 'Wipro'%>Wipro
+    <%= f.radio_button :vendor, 'Self'%>Self
+  </div>
+  <div class="field">
+    <%= f.label :round %><br />
+    <%= f.radio_button :round, '1'%>1
+    <%= f.radio_button :round, '2'%>2
+    <%= f.radio_button :round, '3'%>3
+    <%= f.radio_button :round, '4'%>4
+    <%= f.radio_button :round, '5'%>5
+    <%= f.radio_button :round, '6'%>6
+  </div>
+  <div class="field">
+    <%= f.label :date_of_interview %><br />
+    <%= f.datetime_select :date_of_interview %>
+  </div>
+  <div class="field">
+    <%= f.label :interviewers %><br />
+    <%= f.text_area :interviewers %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.radio_button :status, 'Waiting'%>Waiting
+    <%= f.radio_button :status, 'Proceed'%>Proceed
+    <%= f.radio_button :status, 'No Proceed'%>No Proceed
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
